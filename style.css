@@ -1,0 +1,43 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    --cor-background: rgb(25, 31, 31);
+    --cor-texto: white;
+    --cor-link: rgb(203, 228, 222);
+
+    min-height: 100vh;
+    background-color: var(--cor-background);
+    color: var(--cor-texto);
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+}
+
+@media screen and (prefers-color-scheme: light) {
+    body {
+        --cor-background: rgb(203, 228, 222);
+        --cor-texto: black;
+        --cor-link: rgb(14, 131, 136);
+    }    
+}
+
+a {
+    color: var(--cor-link);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    width: 100vw;
+    padding: 1rem;
+}
+
+@media screen and (min-width: 40rem) {
+    .content {
+        width: 40rem;
+    }
+}
