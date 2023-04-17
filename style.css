@@ -4,21 +4,35 @@ html, body {
 }
 
 body {
-    --cor-background: rgb(25, 31, 31);
-    --cor-texto: white;
-    --cor-link: rgb(203, 228, 222);
+    --rich-black: #001219ff;
+    --midnight-green: #005f73ff;
+    --dark-cyan: #0a9396ff;
+    --tiffany-blue: #94d2bdff;
+    --vanilla: #e9d8a6ff;
+    --gamboge: #ee9b00ff;
+    --alloy-orange: #ca6702ff;
+    --rust: #bb3e03ff;
+    --rufous: #ae2012ff;
+    --auburn: #9b2226ff;
 
-    min-height: 100vh;
+    --cor-background: white;
+    --cor-texto: black;
+    --cor-heading: var(--midnight-green);
+    --cor-link: var(--midnight-green);
+    --cor-link2: rgb(0, 62, 75);
+
     background-color: var(--cor-background);
     color: var(--cor-texto);
     font-family: Tahoma, Verdana, Arial, sans-serif;
 }
 
-@media screen and (prefers-color-scheme: light) {
+@media screen and (prefers-color-scheme: dark) {
     body {
-        --cor-background: rgb(203, 228, 222);
-        --cor-texto: black;
-        --cor-link: rgb(14, 131, 136);
+        --cor-background: var(--rich-black);
+        --cor-texto: white;
+        --cor-heading: var(--tiffany-blue);
+        --cor-link: var(--tiffany-blue);
+        --cor-link2: rgba(148, 210, 189, 0.521);
     }    
 }
 
@@ -33,11 +47,33 @@ a {
 
 .content {
     width: 100vw;
+    max-width: 40rem;
     padding: 1rem;
 }
 
-@media screen and (min-width: 40rem) {
-    .content {
-        width: 40rem;
-    }
+h1 {
+    color: var(--cor-heading);
+}
+
+h1 a {
+    text-decoration: none;
+}
+
+h1 a:hover, h1 a:focus {
+    text-decoration: underline;
+}
+
+h1 a::before {
+    content: "#";
+    font-size: .5em;
+    margin-left: -1em;
+    width: 1em;
+    text-decoration: none;
+    display: inline-block;
+    visibility: hidden;
+    color: var(--cor-link2);
+}
+
+h1 a:hover::before, h1 a:focus::before {
+    visibility: visible;
 }

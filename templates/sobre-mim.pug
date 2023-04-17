@@ -1,0 +1,72 @@
+extends /layout
+
+mixin projeto(name, href)
+  li
+    +link(href=href)= name
+    |: 
+    block
+
+mixin social(network, username, href="")
+  li= network
+    |: 
+    if href
+      +link(href=href)= username
+    else
+      =username
+
+append head
+  title velha.casa / sobre mim
+
+append content
+  +h1("sobre mim")
+  p Sou Iago. jan soweli Jako.
+  p.
+    Sou um aluno de Ciência da Computação na UFLA.
+    Estou no 7º período. Pretendo me formar até o fim de 2023.
+  p Você pode me encontrar e me contactar nesses lugares: 
+  ul
+    +social("GitHub", "iagocq", "https://git.io/IA")
+    +social("Telegram", "@ilostthegame", "https://t.me/ilostthegame")
+    +social("Twitter", "@ilost_the_game", "https://twitter.com/ilost_the_game")
+    +social("Email", "iago arroba velha.casa")
+    +social("Fediverse", "em breve?")
+  p Se há dúvidas sobre como se referir a mim, meus pronomes são ele/dele.
+
+  p Alguns interesses meus são:
+  ul
+    li: p Programar. Logo abaixo estão alguns dos meus projetos.
+    li: p.
+      Jogar. Recentemente, tenho jogado mais The Bingind of Isaac: Rebirth e Minecraft.
+      Outros jogos que gosto bastante incluem Terraria, Factorio e Rimworld.
+      Outer Wilds é, para mim, o melhor jogo já feito até hoje.
+    li: p Toki Pona. Uma língua artificial que leva simplicadade ao extremo tendo apenas 137 palavras. 
+      abbr(title="Toki Pona é uma língua divertida. Você deveria aprender Toki Pona!").
+        toki pona li toki musi. sina o sona toki pona!
+
+  p Alguns projetos meus são:
+  ul
+    p: +projeto("iyasb", "https://github.com/iagocq/iyasb")
+      .
+        um legacy bootloader para x86.
+        Ele é um bootloader que cabe em um MBR ou um FAT bootsector e não usa nenhum outro setor reservado.
+        O stage 2 é lido de um arquivo no disco.
+        Realizá-lo me ajudou muito a ententer como o processo de boot funciona para um processador comum
+        e como o sistema de arquivos FAT funciona.
+    p: +projeto("minha configuração para NixOS", "https://github.com/iagocq/nixos-config")
+      .
+        um projeto que tenta deixar uma base única para todas as minhas máquinas que rodam NixOS.
+        Acabou que ficou uma bagunça e tenho que organizá-lo.
+    p: +projeto("cubo mágico", "https://github.com/criazada/gac104-projeto")
+      .
+        um cubo mágico que roda no navegador.
+        Realizado em grupo para a disciplina GAC104 - Computação Gráfica.
+        Foi o nosso primeiro projeto utilizando WebGL.
+        Se quiser testar, está disponível 
+      a(href="/cubo") aqui
+      |.
+    p: +projeto("criazada", "https://github.com/criazada")
+      .
+        local de agregação de projetos de pessoas do curso.
+        Junto com outros integrantes do curso,
+        tentamos encontrar, categorizar e arquivar repositórios relevantes para o curso.
+  p Hail Eris!

@@ -1,0 +1,8 @@
+mixin link
+  a(target="_blank" rel="noreferrer")&attributes(attributes)
+    block
+
+mixin h1(text)
+  - var id = text.toLowerCase().replace(/ /g, "_").replace(/[^\w]/g, "").replace(/^_+|_+$/g, "").replace(/_+/, "_")
+  h1(id=id)
+    a.heading-anchor(href="#"+id)= text
