@@ -15,20 +15,23 @@ body {
     --rufous: #ae2012ff;
     --auburn: #9b2226ff;
 
-    --cor-background: white;
+    --cor-background: var(--vanilla);
+    --cor-background2: white;
     --cor-texto: black;
-    --cor-heading: var(--midnight-green);
-    --cor-link: var(--midnight-green);
+    --cor-heading: var(--dark-cyan);
+    --cor-link: var(--dark-cyan);
     --cor-link2: rgb(0, 62, 75);
 
     background-color: var(--cor-background);
     color: var(--cor-texto);
     font-family: Tahoma, Verdana, Arial, sans-serif;
+    height: 100vh;
 }
 
 @media screen and (prefers-color-scheme: dark) {
     body {
         --cor-background: var(--rich-black);
+        --cor-background2: black;
         --cor-texto: white;
         --cor-heading: var(--tiffany-blue);
         --cor-link: var(--tiffany-blue);
@@ -42,17 +45,36 @@ a {
 
 .container {
     display: flex;
+}
+
+.v {
+    flex-direction: column;
+}
+
+.h {
+    flex-direction: row;
+}
+
+.center {
     justify-content: center;
 }
 
+.space-between {
+    justify-content: space-between;
+}
+
 .content {
+    margin: 1rem 0;
     width: 100vw;
     max-width: 40rem;
     padding: 1rem;
+    background-color: var(--cor-background2);
+    min-height: min(10rem, 100vh);
 }
 
 h1 {
     color: var(--cor-heading);
+    margin-top: 0;
 }
 
 h1 a {
@@ -65,13 +87,14 @@ h1 a:hover, h1 a:focus {
 
 h1 a::before {
     content: "#";
-    font-size: .5em;
-    margin-left: -1em;
-    width: 1em;
+    font-size: .45em;
+    margin-left: -0.8em;
+    width: 0.8em;
     text-decoration: none;
     display: inline-block;
     visibility: hidden;
     color: var(--cor-link2);
+    vertical-align: middle;
 }
 
 h1 a:hover::before, h1 a:focus::before {
