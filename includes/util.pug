@@ -6,3 +6,15 @@ mixin h1(text)
   - var id = text.toLowerCase().replace(/ /g, "_").replace(/[^\w]/g, "").replace(/^_+|_+$/g, "").replace(/_+/g, "_")
   h1(id=id)
     a.heading-anchor(href="#"+id)= text
+
+mixin nav-item(name, link, except, next=true)
+  if name != except
+    a(href=link)= name
+  else
+    = name
+  if next
+    |  / 
+
+mixin nav(except)
+  +nav-item("índice", "/", except)
+  +nav-item("sobre mim", "sobre-mim", except, false)

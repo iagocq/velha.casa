@@ -63,6 +63,10 @@ a {
     justify-content: space-between;
 }
 
+.grow {
+    flex-grow: 1;
+}
+
 .content {
     margin: 1rem 0;
     width: 100vw;
@@ -74,7 +78,6 @@ a {
 
 h1 {
     color: var(--cor-heading);
-    margin-top: 0;
 }
 
 h1 a {
