@@ -1,7 +1,7 @@
 extends /layout
 
 mixin projeto(name, href)
-  li
+  li: p
     +link(href=href)= name
     |: 
     block
@@ -33,7 +33,6 @@ append content
     +social("Twitter", "@ilost_the_game", "https://twitter.com/ilost_the_game")
     +social("Email", "iago arroba velha.casa")
     +social("Fediverse", "em breve?")
-  p Se há dúvidas sobre como se referir a mim, meus pronomes são ele/dele.
 
   p Alguns interesses meus são:
   ul
@@ -44,22 +43,22 @@ append content
       Outer Wilds é, para mim, o melhor jogo já feito até hoje.
     li: p Toki Pona. Uma língua artificial que leva simplicadade ao extremo tendo apenas 137 palavras. 
       abbr(title="Toki Pona é uma língua divertida. Você deveria aprender Toki Pona!").
-        toki pona li toki musi. sina o sona toki pona!
+        toki pona li toki musi. sina o sona e toki pona!
 
   p Alguns projetos meus são:
   ul
-    p: +projeto("iyasb", "https://github.com/iagocq/iyasb")
+    +projeto("iyasb", "https://github.com/iagocq/iyasb")
       .
         um legacy bootloader para x86.
         Ele é um bootloader que cabe em um MBR ou um FAT bootsector e não usa nenhum outro setor reservado.
         O stage 2 é lido de um arquivo no disco.
         Realizá-lo me ajudou muito a ententer como o processo de boot funciona para um processador comum
         e como o sistema de arquivos FAT funciona.
-    p: +projeto("minha configuração para NixOS", "https://github.com/iagocq/nixos-config")
+    +projeto("minha configuração para NixOS", "https://github.com/iagocq/nixos-config")
       .
         um projeto que tenta deixar uma base única para todas as minhas máquinas que rodam NixOS.
         Acabou que ficou uma bagunça e tenho que organizá-lo.
-    p: +projeto("cubo mágico", "https://github.com/criazada/gac104-projeto")
+    +projeto("cubo mágico", "https://github.com/criazada/gac104-projeto")
       .
         um cubo mágico que roda no navegador.
         Realizado em grupo para a disciplina GAC104 - Computação Gráfica.
@@ -67,7 +66,7 @@ append content
         Se quiser testar, está disponível 
       a(href="/cubo") aqui
       |.
-    p: +projeto("criazada", "https://github.com/criazada")
+    +projeto("criazada", "https://github.com/criazada")
       .
         local de agregação de projetos de pessoas do curso.
         Junto com outros integrantes do curso,

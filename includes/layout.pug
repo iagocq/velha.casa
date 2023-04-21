@@ -9,9 +9,12 @@ html(lang="pt-BR")
       meta(name="viewport", content="width=device-width, initial-scale=1.0")
       link(rel="stylesheet", href="/style.css")
   body
-    .container.h.center
-      .container.v.content
-        nav
+    .flex.h.center
+      .flex.v.container.vh
+        nav.content
           block nav
-        main.grow
+        main.content
           block content
+        .grow
+        footer.content
+          block footer

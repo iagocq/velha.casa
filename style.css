@@ -1,9 +1,4 @@
-html, body {
-    margin: 0;
-    padding: 0;
-}
-
-body {
+html {
     --rich-black: #001219ff;
     --midnight-green: #005f73ff;
     --dark-cyan: #0a9396ff;
@@ -21,74 +16,46 @@ body {
     --cor-heading: var(--dark-cyan);
     --cor-link: var(--dark-cyan);
     --cor-link2: rgb(0, 62, 75);
-
-    background-color: var(--cor-background);
-    color: var(--cor-texto);
-    font-family: Tahoma, Verdana, Arial, sans-serif;
-    height: 100vh;
 }
 
 @media screen and (prefers-color-scheme: dark) {
-    body {
+    html {
         --cor-background: var(--rich-black);
         --cor-background2: black;
         --cor-texto: white;
         --cor-heading: var(--tiffany-blue);
         --cor-link: var(--tiffany-blue);
         --cor-link2: rgba(148, 210, 189, 0.521);
-    }    
+    }
+}
+
+body {
+    background-color: var(--cor-background);
+    color: var(--cor-texto);
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
 a {
     color: var(--cor-link);
 }
 
-.container {
-    display: flex;
-}
-
-.v {
-    flex-direction: column;
-}
-
-.h {
-    flex-direction: row;
-}
-
-.center {
-    justify-content: center;
-}
-
-.space-between {
-    justify-content: space-between;
-}
-
-.grow {
-    flex-grow: 1;
-}
-
-.content {
-    margin: 1rem 0;
-    width: 100vw;
-    max-width: 40rem;
-    padding: 1rem;
-    background-color: var(--cor-background2);
-    min-height: min(10rem, 100vh);
-}
-
-h1 {
+h1:first-child {
     color: var(--cor-heading);
+    margin-top: 0;
 }
 
-h1 a {
+h1 > a {
     text-decoration: none;
 }
 
-h1 a:hover, h1 a:focus {
+h1 > a:hover, h1 > a:focus {
     text-decoration: underline;
 }
 
-h1 a::before {
+h1 > a::before {
     content: "#";
     font-size: .45em;
     margin-left: -0.8em;
@@ -100,6 +67,37 @@ h1 a::before {
     vertical-align: middle;
 }
 
-h1 a:hover::before, h1 a:focus::before {
+h1 > a:hover::before, h1 > a:focus::before {
     visibility: visible;
+}
+
+.flex { display: flex; }
+.v { flex-direction: column; }
+.h { flex-direction: row; }
+.center { justify-content: center; }
+.grow { flex-grow: 1; }
+.vh { min-height: 100vh; }
+
+.content {
+    width: 100vw;
+    max-width: 40rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    background-color: var(--cor-background2);
+}
+
+.container > * {
+    margin: 0.5rem 0;
+}
+
+.container > :first-child {
+    margin-top: 0;
+}
+
+.container > :last-child {
+    margin-bottom: 0;
+}
+
+.container > .grow {
+    margin: 0;
 }

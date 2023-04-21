@@ -1,5 +1,5 @@
 mixin link
-  a(target="_blank" rel="noreferrer")&attributes(attributes)
+  a(target="_blank" rel="noopener noreferrer")&attributes(attributes)
     block
 
 mixin h1(text)
@@ -16,5 +16,6 @@ mixin nav-item(name, link, except, next=true)
     |  / 
 
 mixin nav(except)
-  +nav-item("índice", "/", except)
-  +nav-item("sobre mim", "sobre-mim", except, false)
+  span
+    +nav-item("índice", "/", except)
+    +nav-item("sobre mim", "sobre-mim", except, false)
