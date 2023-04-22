@@ -1,0 +1,20 @@
+extends /layout
+
+mixin site(link, name)
+  li
+    =name
+    |: 
+    +link(href=`https://${link}/`)= link
+
+append head
+  title velha.casa / outros sites
+
+append nav
+  +nav("outros sites")
+
+append content
+  +h1("outros sites")
+  p Sites de amigos:
+  ul
+    +site("firmwarejun.net", "Jun")
+    +site("狼.net", "Matt")

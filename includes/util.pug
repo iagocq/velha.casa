@@ -3,7 +3,7 @@ mixin link
     block
 
 mixin h1(text)
-  - var id = text.toLowerCase().replace(/ /g, "_").replace(/[^\w]/g, "").replace(/^_+|_+$/g, "").replace(/_+/g, "_")
+  - var id = text.toLowerCase().replace(/[^\w]+/g, "-").replace(/^-+|-+$/g, "").replace(/-+/g, "-")
   h1(id=id)
     a.heading-anchor(href="#"+id)= text
 
@@ -18,4 +18,5 @@ mixin nav-item(name, link, except, next=true)
 mixin nav(except)
   span
     +nav-item("índice", "/", except)
-    +nav-item("sobre mim", "sobre-mim", except, false)
+    +nav-item("sobre mim", "/sobre-mim", except)
+    +nav-item("outros sites", "/outros-sites", except, false)
