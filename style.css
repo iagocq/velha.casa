@@ -1,34 +1,3 @@
-html {
-    --rich-black: #001219ff;
-    --midnight-green: #005f73ff;
-    --dark-cyan: #0a9396ff;
-    --tiffany-blue: #94d2bdff;
-    --vanilla: #e9d8a6ff;
-    --gamboge: #ee9b00ff;
-    --alloy-orange: #ca6702ff;
-    --rust: #bb3e03ff;
-    --rufous: #ae2012ff;
-    --auburn: #9b2226ff;
-
-    --cor-background: var(--vanilla);
-    --cor-background2: white;
-    --cor-texto: black;
-    --cor-heading: var(--dark-cyan);
-    --cor-link: var(--dark-cyan);
-    --cor-link2: rgb(0, 62, 75);
-}
-
-@media screen and (prefers-color-scheme: dark) {
-    html {
-        --cor-background: var(--rich-black);
-        --cor-background2: black;
-        --cor-texto: white;
-        --cor-heading: var(--tiffany-blue);
-        --cor-link: var(--tiffany-blue);
-        --cor-link2: rgba(148, 210, 189, 0.521);
-    }
-}
-
 body {
     background-color: var(--cor-background2);
     color: var(--cor-texto);
@@ -108,4 +77,38 @@ h1 > a:hover::before, h1 > a:focus::before {
 
 footer {
     font-size: 0.8rem;
+}
+
+html {
+    --rich-black: #001219ff;
+    --midnight-green: #005f73ff;
+    --dark-cyan: #0a9396ff;
+    --tiffany-blue: #94d2bdff;
+    --vanilla: #e9d8a6ff;
+    --gamboge: #ee9b00ff;
+    --alloy-orange: #ca6702ff;
+    --rust: #bb3e03ff;
+    --rufous: #ae2012ff;
+    --auburn: #9b2226ff;
+
+    --cor-background: var(--vanilla);
+    --cor-background2: white;
+    --cor-texto: black;
+    --cor-heading: var(--dark-cyan);
+    --cor-link: var(--dark-cyan);
+    --cor-link2: rgb(0, 62, 75);
+
+    visibility: visible;
+    opacity: 1;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+    html {
+        --cor-background: var(--rich-black);
+        --cor-background2: black;
+        --cor-texto: white;
+        --cor-heading: var(--tiffany-blue);
+        --cor-link: var(--tiffany-blue);
+        --cor-link2: rgba(148, 210, 189, 0.521);
+    }
 }
