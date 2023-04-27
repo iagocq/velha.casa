@@ -1,0 +1,26 @@
+{
+  "name": "velha.casa",
+  "version": "1.0.0",
+  "description": "Este é o repositório para o código fonte de velha.casa",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iagocq/velha.casa.git"
+  },
+  "author": "iagocq",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iagocq/velha.casa/issues"
+  },
+  "homepage": "https://github.com/iagocq/velha.casa#readme",
+  "dependencies": {
+    "clean-css": "^5.3.2",
+    "globby": "^13.1.4",
+    "html-minifier": "^4.0.0",
+    "pug": "^3.0.2"
+  }
+}
