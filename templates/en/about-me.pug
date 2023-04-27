@@ -1,0 +1,53 @@
+extends /layout
+
+append content
+  +h1("about me")
+  p I'm Iago. jan soweli Jako.
+  p.
+    I'm an undergraduate CompSci student at the Federal University of Lavras (UFLA).
+    I'm on my 7th semester. I plan on graduating by the end of 2023.
+  p You can find and contact me on these places: 
+  ul
+    +social("GitHub", "iagocq", "https://git.io/IA")
+    +social("Telegram", "@ilostthegame", "https://t.me/ilostthegame")
+    +social("Twitter", "@ilost_the_game", "https://twitter.com/ilost_the_game")
+    +social("Email", "iago at velha.casa")
+    +social("Fediverse", "soon?")
+
+  p Some of my interests are:
+  ul
+    li: p Programming. Some of my projects are listed below.
+    li: p.
+      Playing video games. Recently, I've played a lot of The Binding of Isaac: Rebirth and Minecraft.
+      Other games I like a lot include Terraria, Factorio and Rimworld.
+      Outer Wilds is, to me, the best game of all time.
+    li: p Toki Pona. A constructed language that takes simplicity to the extreme, having only 137 words. 
+      abbr(title="Toki Pona is a fun language. You should learn Toki Pona!").
+        toki pona li toki musi. sina o sona e toki pona!
+
+  p Some of my projects are:
+  ul
+    +project("iyasb", "https://github.com/iagocq/iyasb")
+      .
+        a legacy (BIOS) bootloader for x86 processors.
+        It's a bootloader that fits in an MBR or a FAT bootsector and doesn't use any other reserved sector.
+        Stage 2 is read as a file from the disk.
+        Doing this project helped me understand how the boot process works for a common processor
+        and how the FAT filesystem is designed.
+    +project("my NixOS configuration", "https://github.com/iagocq/nixos-config")
+      .
+        a project that attempts to unite configurations of all my systems that run NixOS.
+        It's currently a mess, needs another rework.
+    +project("Rubik's cube", "https://github.com/criazada/gac104-projeto")
+      .
+        a toy Rubik's cube that runs on web browsers.
+        Made in group for a Computer Graphics course.
+        It was our first project using WebGL.
+        If you want to try it out, it's available 
+      a(href="/cubo") here
+      |  (portuguese only).
+    +project("criazada", "https://github.com/criazada")
+      .
+        catalog and archive of CompSci students' projects.
+        With other CompSci students,
+        we try to find, catalog and archive relevant repositories for the whole undergraduate course.

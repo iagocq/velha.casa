@@ -46,3 +46,23 @@ mixin nav
   span
     +nav-lang("pt", "pt-BR", "português")
     +nav-lang("en", "en-US", "english", false)
+
+mixin site(link, name, proto="https://", index="/")
+  li
+    =name
+    |: 
+    +link(href=`${proto}${link}${index}`)= link
+
+mixin project(name, href)
+  li: p
+    +link(href=href)= name
+    |: 
+    block
+
+mixin social(network, username, href="")
+  li= network
+    |: 
+    if href
+      +link(href=href)= username
+    else
+      =username
