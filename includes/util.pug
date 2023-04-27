@@ -1,5 +1,13 @@
 - let toid = t => t.toLowerCase().replace(/[^\w]+/g, "-").replace(/^-+|-+$/g, "")
-- let file = filename.split('/').at(-1).replace('.pug', '')
+- let paths = filename.split('/')
+- let rawlang = paths.at(-2)
+- let lang = {'en': 'en-US'}[rawlang] || 'pt-BR'
+- let file = paths.at(-1).replace('.pug', '')
+- let langs = [ 'pt-BR', 'en-US' ]
+- let translations = [[ 'índice', 'index' ], [ 'sobre-mim', 'about-me' ], [ 'outros-sites', 'other-sites' ]]
+- let translate = (s, l) => translations.find(tls => tls.indexOf(s) != -1)[langs.indexOf(l)]
+- let path = f => translate(f, 'en-US') == 'index' ? './' : f
+- let title = f => translate(f, lang).replace(/-/g, ' ')
 
 mixin link
   a(target="_blank" rel="noopener noreferrer")&attributes(attributes)
@@ -10,16 +18,31 @@ mixin h1(text)
   h1(id=id)
     a.heading-anchor(href="#"+id)= text
 
-mixin nav-item(name, link, next=true)
-  if link == file || link == './' && file == 'index'
-    = name
+mixin nav-item(f, next=true)
+  - let trFile = translate(f, lang)
+  if trFile == file || file == 'index' && f == file
+    = title(trFile)
   else
-    a(href=link)= name
+    a(href=path(trFile))= title(trFile)
+  if next
+    |  / 
+
+mixin nav-lang(name, code, desc, next=true)
+  - let prefix = lang == 'pt-BR' ? '' : '../'
+  abbr(title=desc)
+    if code == lang
+      = name
+    else
+      a(href=`${prefix}${name}/${path(translate(file, code))}`)= name
   if next
     |  / 
 
 mixin nav
   span
-    +nav-item("índice", "./")
-    +nav-item("sobre mim", "sobre-mim")
-    +nav-item("outros sites", "outros-sites", false)
+    +nav-item("index")
+    +nav-item("sobre-mim")
+    +nav-item("outros-sites", false)
+  .grow
+  span
+    +nav-lang("pt", "pt-BR", "português")
+    +nav-lang("en", "en-US", "english", false)
