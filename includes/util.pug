@@ -28,12 +28,12 @@ mixin nav-item(f, next=true)
     |  / 
 
 mixin nav-lang(name, code, desc, next=true)
-  - let prefix = lang == 'pt-BR' ? '' : '../'
+  - let prefix = lang == 'pt-BR' ? name : code == 'pt-BR' ? '..' : `../${name}`
   abbr(title=desc)
     if code == lang
       = name
     else
-      a(href=`${prefix}${name}/${path(translate(file, code))}`)= name
+      a(href=`${prefix}/${path(translate(file, code))}`)= name
   if next
     |  / 
 
