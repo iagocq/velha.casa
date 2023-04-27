@@ -1,22 +1,25 @@
+- let toid = t => t.toLowerCase().replace(/[^\w]+/g, "-").replace(/^-+|-+$/g, "")
+- let file = filename.split('/').at(-1).replace('.pug', '')
+
 mixin link
   a(target="_blank" rel="noopener noreferrer")&attributes(attributes)
     block
 
 mixin h1(text)
-  - var id = text.toLowerCase().replace(/[^\w]+/g, "-").replace(/^-+|-+$/g, "").replace(/-+/g, "-")
+  - var id = toid(text)
   h1(id=id)
     a.heading-anchor(href="#"+id)= text
 
-mixin nav-item(name, link, except, next=true)
-  if name != except
-    a(href=link)= name
-  else
+mixin nav-item(name, link, next=true)
+  if link == file || link == './' && file == 'index'
     = name
+  else
+    a(href=link)= name
   if next
     |  / 
 
-mixin nav(except)
+mixin nav
   span
-    +nav-item("índice", "/", except)
-    +nav-item("sobre mim", "/sobre-mim", except)
-    +nav-item("outros sites", "/outros-sites", except, false)
+    +nav-item("índice", "./")
+    +nav-item("sobre mim", "sobre-mim")
+    +nav-item("outros sites", "outros-sites", false)
