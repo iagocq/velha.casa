@@ -91,24 +91,13 @@ html {
     --rufous: #ae2012ff;
     --auburn: #9b2226ff;
 
-    --cor-background: var(--vanilla);
-    --cor-background2: white;
-    --cor-texto: black;
-    --cor-heading: var(--dark-cyan);
-    --cor-link: var(--dark-cyan);
-    --cor-link2: rgb(0, 62, 75);
+    --cor-background: var(--rich-black);
+    --cor-background2: black;
+    --cor-texto: white;
+    --cor-heading: var(--tiffany-blue);
+    --cor-link: var(--tiffany-blue);
+    --cor-link2: rgba(148, 210, 189, 0.521);
 
     visibility: visible;
     opacity: 1;
-}
-
-@media screen and (prefers-color-scheme: dark) {
-    html {
-        --cor-background: var(--rich-black);
-        --cor-background2: black;
-        --cor-texto: white;
-        --cor-heading: var(--tiffany-blue);
-        --cor-link: var(--tiffany-blue);
-        --cor-link2: rgba(148, 210, 189, 0.521);
-    }
 }
