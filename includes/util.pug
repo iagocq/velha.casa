@@ -1,10 +1,10 @@
 - let toid = t => t.toLowerCase().replace(/[^\w]+/g, "-").replace(/^-+|-+$/g, "")
 - let paths = filename.split('/')
 - let rawlang = paths.at(-2)
-- let lang = {'en': 'en-US'}[rawlang] || 'pt-BR'
+- let lang = {'en': 'en-US', 'tok': 'tok'}[rawlang] || 'pt-BR'
+- let langs = [ 'pt-BR', 'en-US', 'tok' ]
 - let file = paths.at(-1).replace('.pug', '')
-- let langs = [ 'pt-BR', 'en-US' ]
-- let translations = [[ 'índice', 'index' ], [ 'sobre-mim', 'about-me' ], [ 'outros-sites', 'other-sites' ]]
+- let translations = [[ 'índice', 'index', 'open' ], [ 'sobre-mim', 'about-me', 'ijo-mi' ], [ 'outros-sites', 'other-sites', 'lipu-ante' ]]
 - let translate = (s, l) => translations.find(tls => tls.indexOf(s) != -1)[langs.indexOf(l)]
 - let path = f => translate(f, 'en-US') == 'index' ? './' : f
 - let title = f => translate(f, lang).replace(/-/g, ' ')
@@ -45,7 +45,8 @@ mixin nav
   .grow
   span
     +nav-lang("pt", "pt-BR", "português")
-    +nav-lang("en", "en-US", "english", false)
+    +nav-lang("en", "en-US", "english")
+    +nav-lang("tok", "tok", "toki pona", false)
 
 mixin site(link, name, proto="https://", index="/")
   li
